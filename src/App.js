@@ -6,21 +6,37 @@ import SignUp from "./components/sign/SignUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ParcelInfo from "./components/parcel/ParcelInfo";
 import ParcelData from "./components/parcel/ParcelData";
-
+import Demo from "./components/nav/Demo";
+import SigninNew from "./components/sign/SigninNew";
 function App() {
+  const [auth, setAuth] = useState(0);
+  localStorage.setItem("email", "pratik@gmail.com");
+  localStorage.setItem("pass", "pratik");
   return (
     <BrowserRouter>
       <br />
-      <NavBar />
-      <Routes>
-        {/* <Route path="/"><SignIn /></Route> */}
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/parcel" element={<ParcelInfo />} />
-        <Route path="/parcelData" element={<ParcelData />} />
-        {/* <SignUp /> */}
-        {/* </Route> */}
-      </Routes>
+      {auth === 0 && (
+        <>
+          <NavBar />
+          <SigninNew setAuth={setAuth} />
+        </>
+      )}
+      {auth === 1 && (
+        <Demo>
+          <Routes>
+            {/* <Route path="/"><SignIn /></Route> */}
+            {/* <Route path="/signIn" element={<SignIn />} /> */}
+            {/* <Route path="/signinNew" element={<SigninNew />} />
+            <Route path="/signUp" element={<SignUp />} /> */}
+            <Route path="/parcel" element={<ParcelInfo />} />
+            <Route path="/parcelData" element={<ParcelData />} />
+
+            {/* <Route path="/demo" element={<Demo />} /> */}
+            {/* <SignUp /> */}
+            {/* </Route> */}
+          </Routes>
+        </Demo>
+      )}
       <br />
     </BrowserRouter>
   );

@@ -12,7 +12,7 @@ import {
 import useStyles from "./signincss";
 
 import { useNavigate } from "react-router-dom";
-const SignIn = () => {
+const SignIn = (props) => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [value, setvalue] = useState({
@@ -28,32 +28,37 @@ const SignIn = () => {
   };
 
   const SubmitHandler = (event) => {
-    setvalue({ ...value, email: event.target.value });
+    const e = value.email;
+    const p = value.password;
+    console.log(e, p, value);
+    if (e === "pratik@gmail.com" && p === "pratik") {
+      props.setAuth(1);
+      console.log("hiii");
+      navigate("/parcel");
+    } else {
+      alert("Wrong Password");
+    }
   };
   const switchonClick = () => {
-    navigate("/signUp");
+    props.setLogin(1);
   };
   return (
     <div>
       <AppBar
         className={classes.signDiv}
-        style={{ width: "50%" }}
+        style={{ width: "80%" }}
         position="static"
         color="inherit"
       >
+        <h2>Sign In</h2>
         <center>
-          <label>
-            <h2>Sign In</h2>
-            <hr />
-            <br />
-          </label>
           <Grid container columnSpacing={1} rowSpacing={2}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
                 type="text"
                 className={classes.fillbox}
-                onClick={emailHandler}
+                onChange={emailHandler}
                 placeholder="Enter e-mail"
                 name="uname"
                 required
@@ -65,7 +70,7 @@ const SignIn = () => {
                 label="Password"
                 type="password"
                 className={classes.fillbox}
-                onClick={passwordHandler}
+                onChange={passwordHandler}
                 placeholder="Enter Password"
                 name="psw"
                 required

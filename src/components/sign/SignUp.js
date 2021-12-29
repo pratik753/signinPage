@@ -12,7 +12,7 @@ import {
 import useStyles from "./signincss";
 
 import { useNavigate } from "react-router-dom";
-const SignUp = () => {
+const SignUp = (props) => {
   const navigate = useNavigate();
   const classes = useStyles();
   const [value, setvalue] = useState({
@@ -40,25 +40,22 @@ const SignUp = () => {
   };
   const SubmitHandler = (event) => {
     setvalue({ ...value, email: event.target.value });
-    // console.log(...value);
+    console.log(...value);
   };
   const switchonClick = () => {
+    props.setLogin(0);
     navigate("/signIn");
   };
   return (
     <div>
       <AppBar
         className={classes.signDiv}
-        style={{ width: "50%" }}
+        style={{ width: "80%" }}
         position="static"
         color="inherit"
       >
+        <h2>REGISTER</h2>
         <center>
-          <label>
-            <h1>REGISTER</h1>
-            <hr />
-            <br />
-          </label>
           <Grid container columnSpacing={1} rowSpacing={2}>
             <Grid item xs={6}>
               <TextField

@@ -33,10 +33,14 @@ const NavBar = () => {
             SignIn Page
           </Typography>
         </div>
-        <Toolbar className={classes.toolbar}>
-          <div className={classes.profile}>
-            <Typography className={classes.userName} variant="h6"></Typography>
-            {/* <Button
+        {false && (
+          <Toolbar className={classes.toolbar}>
+            <div className={classes.profile}>
+              <Typography
+                className={classes.userName}
+                variant="h6"
+              ></Typography>
+              {/* <Button
               variant="contained"
               className={classes.logout}
               color="secondary"
@@ -44,44 +48,45 @@ const NavBar = () => {
             >
               Logout
             </Button> */}
-          </div>
+            </div>
 
-          <div className={classes.divbtn}>
-            <Link to="/signIn" className={classes.signbtn}>
-              <Button
-                //   component={Link}
-                className={classes.signbtn}
-                variant="contained"
-                color="primary"
-                style={{ margin: ".5rem" }}
-              >
-                Sign In
-              </Button>
-            </Link>
-            <Link to="/parcel" className={classes.signbtn}>
-              <Button
-                //   component={Link}
-                style={{ margin: ".5rem" }}
-                className={classes.signbtn}
-                variant="contained"
-                color="primary"
-              >
-                Parcel
-              </Button>
-            </Link>
-            <Link to="/parcelData" className={classes.signbtn}>
-              <Button
-                //   component={Link}
-                style={{ margin: ".5rem" }}
-                className={classes.signbtn}
-                variant="contained"
-                color="primary"
-              >
-                Parcel Data Show
-              </Button>
-            </Link>
-          </div>
-        </Toolbar>
+            <div className={classes.divbtn}>
+              <Link to="/signIn" className={classes.signbtn}>
+                <Button
+                  //   component={Link}
+                  className={classes.signbtn}
+                  variant="contained"
+                  color="primary"
+                  style={{ margin: ".5rem" }}
+                >
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/parcel" className={classes.signbtn}>
+                <Button
+                  //   component={Link}
+                  style={{ margin: ".5rem" }}
+                  className={classes.signbtn}
+                  variant="contained"
+                  color="primary"
+                >
+                  Parcel
+                </Button>
+              </Link>
+              <Link to="/parcelData" className={classes.signbtn}>
+                <Button
+                  //   component={Link}
+                  style={{ margin: ".5rem" }}
+                  className={classes.signbtn}
+                  variant="contained"
+                  color="primary"
+                >
+                  Parcel Data Show
+                </Button>
+              </Link>
+            </div>
+          </Toolbar>
+        )}
       </AppBar>
     </div>
   );

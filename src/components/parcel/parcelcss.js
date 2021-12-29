@@ -30,4 +30,26 @@ export default makeStyles(() => ({
   h5Head: {
     margin: ".5rem",
   },
+  tablecss: {
+    backgroundColor: "rgb(167, 217, 240)",
+  },
+
+  tablecss: {
+    border: "4px solid rgb(0, 0, 0)",
+    textAlign: "center",
+  },
+
+  tablehead: {
+    background: "black",
+  },
+
+  tablehead: {
+    color: "##000",
+    border: "1px solid black",
+  },
+
+  tabecont: {
+    marginLeft: "2rem",
+    marginRight: "2rem",
+  },
 }));
